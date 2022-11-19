@@ -1,0 +1,11 @@
+<% @reading_lists.each do |reading_list| %>
+    <p>
+    <strong>Book name:</strong>
+    <%= reading_list.book_name %>
+  </p>
+
+
+    <p>
+        <%= link_to "Show this reading list", reading_list %>
+    </p>
+<% end %>
