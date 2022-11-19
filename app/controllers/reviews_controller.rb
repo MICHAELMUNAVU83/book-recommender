@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
   # GET books/1/reviews/new
   def new
     @review = @book.reviews.build
+    @review.user_id = current_user.id
   end
 
   # GET books/1/reviews/1/edit
@@ -23,9 +24,10 @@ class ReviewsController < ApplicationController
   # POST books/1/reviews
   def create
     @review = @book.reviews.build(review_params)
+    @review.user_id = current_user.id
 
     if @review.save
-      redirect_to([@review.book, @review], notice: 'Review was successfully created.')
+      redirect_to(@review.book, notice: 'Review was successfully created.')
     else
       render action: 'new'
     end

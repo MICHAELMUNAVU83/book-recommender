@@ -6,6 +6,9 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
   end
+  def extra
+    @books = Book.all.where(genre: current_user.preferred_genre)
+  end
 
   # GET /books/1 or /books/1.json
   def show
