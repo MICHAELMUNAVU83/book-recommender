@@ -2,13 +2,15 @@
 
 <h1>Books</h1>
 
-<div id="books">
+<div class="container mt-2">
+  <div class="row d-flex">
   <% @books.each do |book| %>
     <%= render book %>
     <p>
       <%= link_to "Show this book", book %>
     </p>
   <% end %>
+  </div>
 </div>
 
 <%= link_to "New book", new_book_path %>
