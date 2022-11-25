@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root to: 'books#index'
   get 'extra', to: 'reading_lists#extra'
   get "books_for_genre", to: "books#extra"
+
+  get '/search', to: "books#search"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

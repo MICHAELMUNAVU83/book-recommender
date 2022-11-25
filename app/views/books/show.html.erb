@@ -1,12 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
+<div class="container d-flex justify-content-center">
 <%= render @book %>
-
-<%= link_to "Add a review", new_book_review_path(@book) %>
-
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
-
-  <%= button_to "Destroy this book", @book, method: :delete %>
 </div>
+
+
+<div class="container d-flex justify-content-center mt-5">
+
+<%= link_to "Add a review", new_book_review_path(@book) , class: "btn btn-dark mx-4" %>
+  <%= link_to "Edit this book", edit_book_path(@book) , class: "btn btn-dark mx-4" %>
+  <%= link_to "Back to books", books_path , class: "btn btn-dark mx-4" %>
+
+  <%= button_to "Destroy this book", @book, method: :delete , class: "btn btn-dark mx-4" %>
+</div>
+
