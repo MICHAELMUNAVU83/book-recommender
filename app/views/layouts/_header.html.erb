@@ -5,7 +5,7 @@
      <h5 class="navbar-brand text-light" > Hello <%= current_user.name %> </h5>
     <% else %>
       <h5 class="navbar-brand text-light"> Not a member ? <h5>
-    <% end %>   
+    <% end %>  
           <button
             class="navbar-toggler"
             type="button"
@@ -24,6 +24,7 @@
              <li class="nav-item">
                <%= link_to "Home", root_path , class: "btn btn-dark mx-4" %>
             </li>
+            
              <li class="nav-item">
                <%= link_to "Books for my genre", books_for_genre_path, class: "btn btn-dark mx-4" %>
             </li>
@@ -34,7 +35,10 @@
                <%= link_to "All Reading Lists", extra_path , class: "btn btn-dark mx-4" %>
             </li>
               <li class="nav-item">
-               <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-dark mx-4" %>
+               <%= link_to "logout", destroy_user_session_path, class: "btn btn-dark mx-4" %>
+            </li>
+            <li>
+              <%= link_to "New", new_book_path , class: "btn btn-dark mx-4" %>
             </li>
         <% else %>
            <li class="nav-item">
@@ -43,6 +47,7 @@
             <li class="nav-item">
                <%= link_to "Sign in" , new_user_session_path , class: "btn btn-dark"%>
             </li>
+
         <% end %> 
             </ul>
           </div>

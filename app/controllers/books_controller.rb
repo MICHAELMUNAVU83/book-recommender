@@ -6,6 +6,10 @@ class BooksController < ApplicationController
   def index
     @books = Book.all
   end
+
+  def search
+    @books = Book.where("name LIKE ?","%" + params[:q]+ "%")
+  end
   def extra
     @books = Book.all.where(genre: current_user.preferred_genre)
   end
@@ -60,6 +64,8 @@ class BooksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

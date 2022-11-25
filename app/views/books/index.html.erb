@@ -1,16 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Books</h1>
+<h1 class="text-center">Books</h1>
+<form class="d-flex" action="/search">
+        <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search" required>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form> 
 
 <div class="container mt-2">
   <div class="row d-flex">
   <% @books.each do |book| %>
     <%= render book %>
-    <p>
-      <%= link_to "Show this book", book %>
-    </p>
   <% end %>
   </div>
 </div>
-
-<%= link_to "New book", new_book_path %>
