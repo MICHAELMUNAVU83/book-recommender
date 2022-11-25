@@ -9,8 +9,21 @@
 
 <%= link_to "Add a review", new_book_review_path(@book) , class: "btn btn-dark mx-4" %>
   <%= link_to "Edit this book", edit_book_path(@book) , class: "btn btn-dark mx-4" %>
-  <%= link_to "Back to books", books_path , class: "btn btn-dark mx-4" %>
 
-  <%= button_to "Destroy this book", @book, method: :delete , class: "btn btn-dark mx-4" %>
+  <%= button_to "Delete this book", @book, method: :delete , class: "btn btn-dark mx-4" %>
+  <%= link_to "Back to books", books_path , class: "btn btn-dark mx-4" %>
 </div>
 
+<% if @book.reviews.any? %>
+ <h2 class="text-center mt-5">Reviews</h2>
+<% @book.reviews.each do |review| %>
+ <p> Review: <%= review.text %></p>
+  <p> Score :<%= review.score %></p>
+  <p> Review by: <%= review.user.name %></p>
+     
+
+<% end %>
+
+<% else %>
+  <p>No reviews yet</p>
+<% end %>
